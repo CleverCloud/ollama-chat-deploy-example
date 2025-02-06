@@ -19,7 +19,7 @@ ollama_start() {
     ls ${BIN_DIR}/ollama
     echo "coucou2"
     sleep 2
-    ollama serve 
+    ollama serve &
     #&> /dev/null &
     echo -e "Finished: \o/"
 }
@@ -38,7 +38,7 @@ get_models() {
     # Loop through each line and pull model
     while IFS= read -r line; do
         echo "Pulling ${line} model..."
-        ollama pull "${line}" > /dev/null 2>&1
+        ollama pull "${line}" > /dev/null
         echo -e "Finished: \033[32m✔\033[0m\n"
 
     done < ${MODELS_FILE}
