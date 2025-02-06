@@ -10,7 +10,7 @@ mkdir -p ${LIB_DIR}
 ollama_start() {
     echo "Downloading and launching ollama..."
     curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-    tar -xzf ollama-linux-amd64.tgz -C
+    tar -xzf ollama-linux-amd64.tgz
     sleep 2
     echo "coucou"
     mv bin/* ${BIN_DIR}
