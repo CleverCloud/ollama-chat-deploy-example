@@ -2,16 +2,19 @@
 
 # We define the folder (in $PATH), where the ollama binary will be placed
 BIN_DIR=${HOME}/.local/bin
+LIB_DIR=${HOME}/.local/lib
 mkdir -p ${BIN_DIR} 
+mkdir -p ${LIB_DIR}
+
 
 ollama_start() {
-    mkdir ${BIN_DIR}/ollama
-    echo "Ollama folder created"
     echo "Downloading and launching ollama..."
     curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-    tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
+    tar -xzf ollama-linux-amd64.tgz -C
     sleep 2
     echo "coucou"
+    mv bin/* ${BIN_DIR}
+    mv lib/* ${LIB_DIR}
     chmod +x ${BIN_DIR}/ollama
     ls ${BIN_DIR}/ollama
     echo "coucou2"
