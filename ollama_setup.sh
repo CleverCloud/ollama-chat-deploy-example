@@ -5,8 +5,10 @@ BIN_DIR=${HOME}/.local/bin
 mkdir -p ${BIN_DIR} 
 
 ollama_start() {
+    mkdir ${BIN_DIR}/ollama
     echo "Downloading and launching ollama..."
-    curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz | tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
+    curl -Ls https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+    tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
     chmod +x ${BIN_DIR}/ollama
     ollama serve &> /dev/null &
     echo -e "Finished: \033[32m✔\033[0m\n"
