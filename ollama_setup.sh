@@ -11,8 +11,8 @@ ollama_start() {
     curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
     tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}
     echo "coucou"
-    sleep 5
     chmod +x ${BIN_DIR}/ollama
+    echo "coucou2"
     ollama serve &> /dev/null &
     echo -e "Finished: \033[32m✔\033[0m\n"
 }
