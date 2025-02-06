@@ -6,7 +6,8 @@ mkdir -p ${BIN_DIR}
 
 ollama_start() {
     echo "Downloading and launching ollama..."
-    curl -Ls https://ollama.ai/download/ollama-linux-amd64 -o ${BIN_DIR}/ollama
+    curl -Ls https://ollama.ai/download/ollama-linux-amd64
+    tar -zxf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
     chmod +x ${BIN_DIR}/ollama
     ollama serve &> /dev/null &
     echo -e "Finished: \033[32m✔\033[0m\n"
