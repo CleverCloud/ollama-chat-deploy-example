@@ -15,8 +15,9 @@ ollama_start() {
     chmod +x ${BIN_DIR}/ollama
     ls ${BIN_DIR}/ollama
     echo "coucou2"
-    sleep 2 
-    ollama serve &> /dev/null &
+    sleep 2
+    ollama serve 
+    #&> /dev/null &
     echo -e "Finished: \o/"
 }
 #https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7
