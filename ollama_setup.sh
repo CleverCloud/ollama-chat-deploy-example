@@ -6,8 +6,9 @@ mkdir -p ${BIN_DIR}
 
 ollama_start() {
     mkdir ${BIN_DIR}/ollama
+    echo "Ollama folder created"
     echo "Downloading and launching ollama..."
-    curl -Ls https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+    curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
     echo "coucou"
     sleep 5
     chmod +x ${BIN_DIR}/ollama
