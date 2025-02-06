@@ -1,0 +1,20 @@
+{
+  "apps": [
+    {
+      "app_id": "app_a933f517-b1cd-4557-b5d9-a5d9cfbb9f77",
+      "org_id": "user_67318658-a551-43f1-b125-d91e85333053",
+      "deploy_url": "https://push-n3-par-clevercloud-customers.services.clever-cloud.com/app_a933f517-b1cd-4557-b5d9-a5d9cfbb9f77.git",
+      "git_ssh_url": "git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_a933f517-b1cd-4557-b5d9-a5d9cfbb9f77.git",
+      "name": "Countly server - example",
+      "alias": "Countly-server-example"
+    },
+    {
+      "app_id": "app_0127eb90-ba77-4a04-bcfb-525754d1af89",
+      "org_id": "user_67318658-a551-43f1-b125-d91e85333053",
+      "deploy_url": "https://push-n3-par-clevercloud-customers.services.clever-cloud.com/app_0127eb90-ba77-4a04-bcfb-525754d1af89.git",
+      "git_ssh_url": "git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_0127eb90-ba77-4a04-bcfb-525754d1af89.git",
+      "name": "ollama-chat-deploy-example",
+      "alias": "ollama-chat-deploy-example"
+    }
+  ]
+}

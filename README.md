@@ -1,36 +1,88 @@
-# Ollama Chat Deploy
+# Chatbot Ollama
 
-Deploy AI models on Clever Cloud with [Ollama](https://github.com/ollama/ollama). You'll need a [Clever Cloud account](https://console.clever-cloud.com/) and [Clever Tools](https://github.com/CleverCloud/clever-tools).
+## About
 
-## Setup Clever Tools
+Chatbot Ollama is an open source chat UI for Ollama.
 
-```bash
-npm i -g clever-tools
-clever login
+This project is based on [chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) by [Mckay Wrigley](https://github.com/mckaywrigley).
+
+![Chatbot Ollama](./public/screenshots/screenshot-2023-10-02.png)
+
+## Updates
+
+Chatbot Ollama will be updated over time.
+
+### Next up
+
+- [ ] pull a model
+- [ ] delete a model
+- [ ] show model information
+
+## Docker
+
+Build locally:
+
+```shell
+docker build -t chatbot-ollama .
+docker run -p 3000:3000 chatbot-ollama
 ```
 
-## Init the project
+Pull from ghcr:
 
 ```bash
-git clone https://github.com/CleverCloud/ollama-chat-deploy.git
-cd ollama-chat-deploy
-./project_init.sh
+docker run -p 3000:3000 ghcr.io/ivanfioravanti/chatbot-ollama:main
 ```
 
-## Create and configure the application on Clever Cloud
+## Running Locally
+
+### 1. Clone Repo
 
 ```bash
-clever create --type node
-clever scale --flavor L
-clever env import < .env
+git clone https://github.com/ivanfioravanti/chatbot-ollama.git
 ```
 
-## Deploy on Clever Cloud
+### 2. Move to folder
 
 ```bash
-git add . && git commit -m "Init application"
-clever deploy
-clever open
+cd chatbot-ollama
 ```
 
-Learn more about this project in our [dedicated blog post](https://www.clever-cloud.com/blog/engineering/2023/11/27/deploy-llama-mistral-openchat-or-your-own-model-on-clever-cloud/).
+### 3. Install Dependencies
+
+```bash
+npm ci
+```
+
+### 4. Run Ollama server
+
+Either via the cli:
+
+```bash
+ollama serve
+```
+
+or via the [desktop client](https://ollama.ai/download)
+
+### 5. Run App
+
+```bash
+npm run dev
+```
+
+### 6. Use It
+
+You should be able to start chatting.
+
+## Configuration
+
+When deploying the application, the following environment variables can be set:
+
+| Environment Variable              | Default value                  | Description                                                                                                                               |
+| --------------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| DEFAULT_MODEL                     | `mistral:latest`                | The default model to use on new conversations                                                                                             |
+| NEXT_PUBLIC_DEFAULT_SYSTEM_PROMPT | [see here](utils/app/const.ts) | The default system prompt to use on new conversations                                                                                     |
+| NEXT_PUBLIC_DEFAULT_TEMPERATURE   | 1                              | The default temperature to use on new conversations                                                                                       |
+
+## Contact
+
+If you have any questions, feel free to reach out to me on [X](https://x.com/ivanfioravanti).
