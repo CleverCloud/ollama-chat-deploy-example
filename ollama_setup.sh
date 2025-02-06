@@ -7,12 +7,15 @@ mkdir -p ${BIN_DIR}
 ollama_start() {
     mkdir ${BIN_DIR}/ollama
     echo "Downloading and launching ollama..."
-    curl -Ls https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7 -o ${BIN_DIR}/ollama
+    curl -Ls https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+    sleep 5
+    tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
+    sleep 5
     chmod +x ${BIN_DIR}/ollama
     ollama serve &> /dev/null &
     echo -e "Finished: \033[32m✔\033[0m\n"
 }
-
+#https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7
 
 get_models() {
     MODELS_FILE="models.list"
