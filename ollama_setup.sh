@@ -9,13 +9,15 @@ ollama_start() {
     echo "Ollama folder created"
     echo "Downloading and launching ollama..."
     curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-    tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}
+    tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}/ollama
+    sleep 2
     echo "coucou"
     chmod +x ${BIN_DIR}/ollama
     ls ${BIN_DIR}/ollama
     echo "coucou2"
+    sleep 2 
     ollama serve &> /dev/null &
-    echo -e "Finished: \033[32m✔\033[0m\n"
+    echo -e "Finished: \o/"
 }
 #https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7
 
