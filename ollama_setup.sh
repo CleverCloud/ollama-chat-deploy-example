@@ -12,6 +12,7 @@ ollama_start() {
     tar -xzf ollama-linux-amd64.tgz -C ${BIN_DIR}
     echo "coucou"
     chmod +x ${BIN_DIR}/ollama
+    ls ${BIN_DIR}/ollama
     echo "coucou2"
     ollama serve &> /dev/null &
     echo -e "Finished: \033[32m✔\033[0m\n"
