@@ -38,8 +38,8 @@ get_models() {
     # Loop through each line and pull model
     while IFS= read -r line; do
         echo "Pulling ${line} model..."
-        ollama pull "${line}" > /dev/null
-        echo -e "Finished: \033[32m✔\033[0m\n"
+        ollama pull "${line}"
+        echo "Pulling model: finished"
 
     done < ${MODELS_FILE}
 }
