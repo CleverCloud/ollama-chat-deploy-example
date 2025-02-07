@@ -20,6 +20,7 @@ ollama_start() {
     echo "coucou2"
     sleep 2
     ollama serve &
+    ollama pull llama3.2
     #&> /dev/null &
     echo -e "Finished: \o/"
 }
