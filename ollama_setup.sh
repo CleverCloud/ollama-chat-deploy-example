@@ -8,20 +8,34 @@ mkdir -p ${LIB_DIR}
 
 
 ollama_start() {
-    echo "Downloading and launching ollama..."
-    curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-    tar -xzf ollama-linux-amd64.tgz
+    
+    if [ ! -f ${APP_HOME}/storage/image/ollama-linux-amd64.tgz ]; then
+        echo "Ollama not found, downloading..."
+        mkdir -p ${APP_HOME}/storage/image
+        curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
+        tar -xzf ollama-linux-amd64.tgz -C ${APP_HOME}/fsbucket/cache
+        
+        else 
+        echo "Ollama found, skipping download" 
+    fi
     sleep 2
-    echo "coucou"
-    mv bin/* ${BIN_DIR}
-    mv lib/* ${LIB_DIR}
+    
+    #Move the uncompressed files to the target local folder 
+    mv ${APP_HOME}/storage/image/bin/* ${BIN_DIR}
+    mv ${APP_HOME}/storage/image/lib/* ${LIB_DIR}
+
+    #Make ollama folder executable
     chmod +x ${BIN_DIR}/ollama
+
+    #Just listing to make sure
     ls ${BIN_DIR}/ollama
-    echo "coucou2"
     sleep 2
+
+    #Launching ollama
     ollama serve &
     #&> /dev/null &
-    echo -e "Finished: \o/"
+
+    echo -e "Ollama is launched. Pulling models now"
 }
 #https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7
 
@@ -38,8 +52,8 @@ get_models() {
     # Loop through each line and pull model
     while IFS= read -r line; do
         echo "Pulling ${line} model..."
-        ollama pull "${line}"
-        echo "Pulling model: finished"
+        ollama pull "${line}" > /dev/null 2>&1
+        echo -e "Finished: \033[32m✔\033[0m\n"
 
     done < ${MODELS_FILE}
 }
