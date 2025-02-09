@@ -13,7 +13,7 @@ ollama_start() {
         echo "Ollama not found, downloading..."
         mkdir -p ${APP_HOME}/storage/image
         curl -L https://ollama.com/download/ollama-linux-amd64.tgz -o ollama-linux-amd64.tgz
-        tar -xzf ollama-linux-amd64.tgz -C ${APP_HOME}/fsbucket/cache
+        tar -xzf ollama-linux-amd64.tgz -C ${APP_HOME}/storage/image
         
         else 
         echo "Ollama found, skipping download" 
