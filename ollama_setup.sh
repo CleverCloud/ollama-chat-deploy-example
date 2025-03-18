@@ -35,7 +35,7 @@ ollama_start() {
     ollama serve &
     #&> /dev/null &
 
-    echo -e "Ollama is launched. Pulling models now"
+    echo -e "Ollama is launched. Pulling models now..."
 }
 #https://github.com/ollama/ollama/releases/tag/v0.5.8-rc7
 
